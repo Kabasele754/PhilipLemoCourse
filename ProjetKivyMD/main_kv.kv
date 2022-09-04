@@ -62,15 +62,18 @@ MDScreen:
                 adaptive_height: True
             ScrollView:
                 DrawerList:
+
+                    OneLineIconListItem:
+                        text:"Home"
+                        IconLeftWidget:
+                            icon: "home"
+                            on_release: nav_drawer.set_state("close"); screen_manager.current = "home"
                     OneLineIconListItem:
                         text:"Data"
                         IconLeftWidget:
                             icon: "database"
                             on_release: nav_drawer.set_state("close"); screen_manager.current = "data"
-                    OneLineIconListItem:
-                        text:"Home"
-                        IconLeftWidget:
-                            icon: "home"
+                   
                     OneLineIconListItem:
                         text:"Maps"
                         on_release: nav_drawer.set_state("close"); screen_manager.current = "maps"
