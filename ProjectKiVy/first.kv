@@ -1,30 +1,49 @@
-#:import widgeet_exemple libs.subclass.widgeet_exemple
-#: import layout_exemple libs.subclass.layout_exemple
-#: import navigation_creen_manager libs.subclass.navigation_creen_manager
-#: import baxlayout_with_actionbar libs.subclass.baxlayout_with_actionbar
+#:import widgeet_exemple libs.uix.subclass.widgeet_exemple
+#: import layout_exemple libs.uix.subclass.layout_exemple
+#: import navigation_creen_manager libs.uix.subclass.navigation_creen_manager
+#: import baxlayout_with_actionbar libs.uix.subclass.baxlayout_with_actionbar
+
 # Partie layout pour lancer l'applicationn
 
-MyScreenManager:
-<MyScreenManager@NavigationScreenManager>:
+
+
+
+<MenuPrincipal@BoxLayout>:
+    orientation: "vertical"
+    Button:
+        text: "Layouts"
+        on_press: app.manager.push("LayoutExemplesTabs")
+    Button:
+        text: "Widgets"
+        on_press: app.manager.push("WidgetsExemple")
+    Button:
+        text: "Images"
+        on_press: app.manager.push("ImagesExemple")
+
+#<MyScreenManager@NavigationScreenManager>: vous definissez cette classe dans
+#fichier main.py puis vous le retournez dans la fonction builder pour le lancer comme notre premier screen manager
+# il va herité navigationScreenManager une classe que nous avons creer dans le fichier
+# navigation_screen_manager.py
+
+<MyScreenManager>:
     Screen:
-        name: "screen1"
-        BoxLayout:
-            orientation: 'vertical'
-            Button:
-                text:"Aller au sreen 2"
-                on_press: root.push('screen2')
-            Button:
-                text:"Aller aux Images"
-                on_press: root.push('ImagesExemple')
+        name: "MenuPrincipal"
+        MenuPrincipal:
+
     Screen:
-        name: "screen2"
-        Button:
-            text:"B"
-            on_press: root.pop()
+        name: "WidgetsExemple"
+        BoxLayoutWithActionBar:
+            title: "Widgets"
+            WidgetExempleSecond:
     Screen:
         name:"ImagesExemple"
         BoxLayoutWithActionBar:
             title: "Image"
             ImagesExample
+    Screen:
+        name:"LayoutExemplesTabs"
+        BoxLayoutWithActionBar:
+            title: "Layout"
+            LayoutExemplesTabs
 
 
