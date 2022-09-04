@@ -1,0 +1,28 @@
+#: import MapView kivy_garden.mapview
+
+<ScreenMap>:
+    MDBoxLayout:
+        MapView:
+            #-11.6749507,27.4671683,13z
+            lat: -11.6749507
+            lon: 27.4671683
+            zoom: 10
+
+            MapMarkerPopup:
+                source:"assets/image_map/marker.png"
+                lat: -11.6843854
+                lon: 27.4758589
+                popup_size: 400,300
+            MapMarkerPopup:
+                # -11.6211313,27.4609494 Kasapa
+                source:"assets/image_map/marker.png"
+                lat: 11.6211313
+                lon: 27.4609494
+
+                popup_size: 400,300
+            MapMarkerPopup:
+                source:"assets/image_map/marker.png"
+                # -11.6853964,27.4516797 katumba
+                lat: -11.6853964
+                lon: 27.4516797
+                popup_size: 400,300

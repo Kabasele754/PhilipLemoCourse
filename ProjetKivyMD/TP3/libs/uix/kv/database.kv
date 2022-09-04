@@ -1,0 +1,83 @@
+Screen:
+    MDBoxLayout:
+        id: main_layout
+        orientation: 'vertical'
+        padding: dp(20)
+
+        MDLabel:
+            text: "Inscription"
+            font_size: dp(20)
+            halign: 'center'
+            padding_y: dp(20)
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        MDGridLayout:
+            adaptive_height: True
+            cols: 2
+            spacing: 30
+            MDBoxLayout:
+                #MDLabel:
+                    #text: "Student Id"
+                MDLabel:
+                    id: student_id
+                    text: ''
+                    color: (1, 0, 0, 1)
+            Widget:
+
+            MDTextField:
+                id: name
+                hint_text: "Name"
+                mode: "rectangle"
+                size_hint_x: .50
+                #size_hint_y: 0.07
+
+
+            MDTextField:
+                id: lastname
+                hint_text: "lastname"
+                mode: "rectangle"
+
+            MDTextField:
+                id: firstname
+                hint_text: "Firstname"
+                mode: "rectangle"
+
+
+            MDTextField:
+                id: age
+                hint_text: "Age"
+                mode: "rectangle"
+
+
+        ScrollView:
+            do_scroll_x: True
+            do_scroll_y: False
+            size: self.size
+
+            MDBoxLayout:
+                size_hint_y: None
+                cols: 1
+                row_default_height: '20dp'
+                row_force_default: True
+                adaptive_height: True
+                spacing: dp(20)
+                padding: dp(20)
+
+
+
+                MDRectangleFlatButton:
+                    text: "Clear Form"
+                    on_press: app.clear_form()
+
+                MDRectangleFlatButton:
+                    text: "Add student"
+                    on_press: app.add_record()
+
+                MDRectangleFlatButton:
+                    text: "Update student"
+                    on_press: app.update_record()
+
+                MDRectangleFlatButton:
+                    text: "Delete student"
+                    on_press: app.delete_record()

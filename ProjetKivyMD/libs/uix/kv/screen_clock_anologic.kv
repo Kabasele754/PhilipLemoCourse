@@ -1,0 +1,14 @@
+<ScreenClockAnalog>:
+    md_bg_color: 0,0,0,1
+    labels:
+        (
+        {'text': text, 'font_size': 30, }
+        for text in "12 1 2 3 4 5 6 7 8 9 10 11".split()
+        )
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Line:
+            width: 2.
+            circle: 0, 0, min(self.size) * 0.49
+

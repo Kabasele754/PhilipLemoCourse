@@ -1,0 +1,169 @@
+
+
+<ScreenData>:
+    id: data
+    BoxLayout:
+        MDTabs:
+            TabData:
+                text: "List Etudiant"
+                MDBoxLayout:
+                    orientation: "vertical"
+                    padding: dp(10)
+                    spacing: dp(5)
+
+                    MDGridLayout: # GridLayout des input text
+                        id: box_data
+                        cols: 2
+                        spacing: 30
+                        padding: dp(10)
+                        # Partie input
+                        MDTextField:
+                            id: name
+                            mode: "rectangle"
+                            hint_text: "Nom"
+
+                            pos_hint: {"center_x":.3, "center_y":.90}
+                        MDTextField:
+                            id: lastname
+                            mode: "rectangle"
+                            hint_text: "PostNom"
+                            pos_hint: {"center_x":.3, "center_y":.90}
+                        MDTextField:
+                            id: firstname
+                            mode: "rectangle"
+                            hint_text: "PreNom"
+                        MDTextField:
+                            id: age
+                            mode: "rectangle"
+                            hint_text: "Age"
+                        MDLabel:
+                            id: student_id
+                            text: ''
+                            color: (1, 0, 0, 1)
+                    MDBoxLayout:
+                        #orientation: "vertical"
+                        size_hint_y: None
+                        clos:1
+                        row_default_height:dp(20)
+                        row_force_default: True
+                        adaptive_height: True
+                        spacing: dp(10)
+                        padding: dp(10)
+
+
+                        MDFloatingActionButton:
+                            icon: "content-save"
+                            md_bg_color: '#3492eb'
+                            elevation: 10
+                            pos_hint: {"center_x":.5, "center_y":.80}
+                            on_press: box_table_etud.sava_data(student_id, name, lastname, firstname, age)
+                        MDFloatingActionButton:
+                            icon: "database-refresh"
+                            md_bg_color: '#3492eb'
+                            #text: "Update"
+                            pos_hint: {"center_x":.5, "center_y":.80}
+                            elevation: 10
+                        MDFloatingActionButton:
+                            icon: "delete"
+                            #icon_size: "30sp"
+                            #md_bg_color=self.theme_cls.primary_color
+                            md_bg_color: '#3492eb'
+                            pos_hint: {"center_x":.5, "center_y":.80}
+                            elevation: 10
+                        MDFloatingActionButton:
+                            icon: "refresh"
+                            md_bg_color: '#3492eb'
+                            #text: "Clear"
+                            pos_hint: {"center_x":.5, "center_y":.80}
+                            elevation: 10
+
+
+                    GridDataTabeEtudiant:
+                        id: box_table_etud
+
+
+            TabData:
+                #padding: 20
+                text: "List Professeur"
+                GridDataTabeEnseignant:
+                    id: box_table
+                    size_hint: 1, .90
+                MDBoxLayout:
+                    #orientation: "vertical"
+                    size_hint_y: None
+                    clos:1
+                    row_default_height:dp(50)
+                    row_force_default: True
+                    adaptive_height: True
+                    spacing: dp(10)
+                    padding: dp(40),dp(10),dp(10),dp(40)
+
+
+                    MDFloatingActionButton:
+                        icon: "plus"
+                        md_bg_color: '#3492eb'
+                        elevation: 10
+                        pos_hint: {"center_x":.5, "center_y":.10}
+                        on_press: root.show_confirmation_dialog(self)
+                    MDFloatingActionButton:
+                        icon: "database-refresh"
+                        md_bg_color: '#3492eb'
+                        #text: "Update"
+                        pos_hint: {"center_x":.5, "center_y":.10}
+                        elevation: 10
+                    MDFloatingActionButton:
+                        icon: "delete"
+                        #icon_size: "30sp"
+                        #md_bg_color=self.theme_cls.primary_color
+                        md_bg_color: '#3492eb'
+                        pos_hint: {"center_x":.5, "center_y":.10}
+                        elevation: 10
+                    MDFloatingActionButton:
+                        icon: "refresh"
+                        md_bg_color: '#3492eb'
+                        #text: "Clear"
+                        pos_hint: {"center_x":.5, "center_y":.10}
+                        elevation: 10
+                Widget:
+            TabData:
+                text: "List Moyenne"
+
+<ContentDialog>
+    id: con_dialog
+    orientation: "vertical"
+    spacing: "12dp"
+    size_hint_y: None
+    height: "160dp"
+
+    MDGridLayout: # GridLayout des input text
+        id: box_data
+        cols: 2
+        spacing: 30
+        padding: dp(10)
+        # Partie input
+        MDTextField:
+            id: name
+            mode: "rectangle"
+            hint_text: "Nom"
+            pos_hint: {"center_x":.3, "center_y":.90}
+            on_text: root.manager.name
+        MDTextField:
+            id: lastname
+            mode: "rectangle"
+            hint_text: "PostNom"
+            pos_hint: {"center_x":.3, "center_y":.90}
+            #text: scre_data.self.lastname
+        MDTextField:
+            id: firstname
+            mode: "rectangle"
+            hint_text: "PreNom"
+            #text: scre_data.self.firstname
+        MDTextField:
+            id: age
+            mode: "rectangle"
+            hint_text: "Age"
+            #text: scre_data.self.age
+
+    MDFloatLayout:
+
+

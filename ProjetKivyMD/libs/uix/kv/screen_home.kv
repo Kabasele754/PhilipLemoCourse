@@ -1,0 +1,53 @@
+<ScreenHome>:
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: dp(20)
+        MDFloatLayout:
+            MDTextFieldRound:
+                pos_hint: {"center_x": .5, "center_y": .95}
+                hint_text: "Recherche"
+                icon_left: "magnify"
+                normal_color: (100, 100, 50, .5)
+                color_active: (255, 255, 255, 0)
+                on_text: root.rechercher(root.ids.rv_etudiant, self.text)
+    BoxLayout:
+        pos_hint: {"center_x": .5, "center_y": .32}
+        orientation: "vertical"
+        RecycleView:
+            id: rv_etudiant
+            key_viewclass: "viewclass"
+            key_size: "height"
+            RecycleBoxLayout:
+                orientation: "vertical"
+                padding: dp(10)
+                spacing: dp(5)
+                default_size: None, dp(75)
+                default_size_hint: 1, None
+                size_hint_y: None
+                height: self.minimum_height
+    MDBottomAppBar:
+        MDToolbar:
+            #md_bg_color: 0,1,0,1
+            type: 'bottom'
+            icon: "magnify"
+            #on_release: root.show_confirmation_dialog
+            mode: "center" # free-end, center, end, free-center
+
+            left_action_items: [['calendar-text', lambda x: print("Je suis calendrier")]]
+            right_action_items: [['message', lambda x: print("Je suis message")]]
+
+
+<DialogInscription>
+    orientation: "vertical"
+    spacing: "12dp"
+    size_hint_y: None
+    height: "120dp"
+
+    MDTextField:
+        hint_text: "Enter a Todo"
+
+    MDTextField:
+        hint_text: "Enter Time"
+
+
+    MDFloatLayout:

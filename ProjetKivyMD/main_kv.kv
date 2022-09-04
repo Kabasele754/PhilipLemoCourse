@@ -1,0 +1,106 @@
+#: import screen_home libs.uix.subclass.screen_home
+#: import screen_map libs.uix.subclass.screen_map
+#: import screen_data libs.uix.subclass.screen_data
+#: import screen_clock_anologic libs.uix.subclass.screen_clock_anologic
+#: import screen_contact libs.uix.subclass.screen_contact
+
+
+MDScreen:
+    MDBoxLayout:
+        orientation: "vertical"
+        MDToolbar:
+            title: "MY App"
+            left_action_items: [['menu', lambda x: nav_drawer.set_state("open")  ]]
+            right_action_items: [['account-circle', lambda x: print("je suis acount")  ], ['dots-vertical', lambda x: print("je suis notification")]]
+        # Mon Gestionaire d'ecran
+        ScreenManager:
+            id: screen_manager
+            ScreenHome:
+                name: "home"
+            ScreenMap:
+                name: "maps"
+            ScreenData:
+                name: 'data'
+
+            MDScreen:
+                md_bg_color: 0, 0, 0, 1
+                name: "clock_ana"
+                ScreenClockAnalog
+
+            ScreenContact:
+                name: "contact"
+
+
+            Screen:
+                name: "image"
+                MDLabel:
+                    text: "image"
+
+    MDNavigationDrawer:
+        id: nav_drawer
+        opening_transition: "out_bounce"
+        opening_time: 2
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: "10dp"
+            spacing: "8dp"
+
+            AnchorLayout:
+                anchor_x: "left"
+                size_hint_y: None
+                height: avatar.height
+
+                Image:
+                    id: avatar
+                    size_hint: None, None
+                    size: dp(270), dp(200)
+                    source: "enfant1.jpg"
+            MDLabel:
+                text: "KivyMD library"
+                font_style: "Button"
+                adaptive_height: True
+            ScrollView:
+                DrawerList:
+                    OneLineIconListItem:
+                        text:"Data"
+                        IconLeftWidget:
+                            icon: "database"
+                            on_release: nav_drawer.set_state("close"); screen_manager.current = "data"
+                    OneLineIconListItem:
+                        text:"Home"
+                        IconLeftWidget:
+                            icon: "home"
+                    OneLineIconListItem:
+                        text:"Maps"
+                        on_release: nav_drawer.set_state("close"); screen_manager.current = "maps"
+                        IconLeftWidget:
+                            icon: "google-maps"
+                    OneLineIconListItem:
+                        text:"Gallery"
+                        IconLeftWidget:
+                            icon: "image"
+                    OneLineIconListItem:
+                        text:"Video"
+                        IconLeftWidget:
+                            icon: "video"
+                    OneLineIconListItem:
+                        text:"User"
+                        on_release: nav_drawer.set_state("close"); screen_manager.current = "contact"
+                        IconLeftWidget:
+                            icon: "account"
+                    OneLineIconListItem:
+                        text:"Dossier"
+                        IconLeftWidget:
+                            icon: "folder"
+                    OneLineIconListItem:
+                        text:"Navigateur"
+                        IconLeftWidget:
+                            icon: "navigation"
+                    OneLineIconListItem:
+                        text:"Réveil"
+                        on_release: nav_drawer.set_state("close"); screen_manager.current = "clock_ana"
+                        IconLeftWidget:
+                            icon: "clock"
+
+
