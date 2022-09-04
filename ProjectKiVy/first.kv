@@ -1,0 +1,30 @@
+#:import widgeet_exemple libs.subclass.widgeet_exemple
+#: import layout_exemple libs.subclass.layout_exemple
+#: import navigation_creen_manager libs.subclass.navigation_creen_manager
+#: import baxlayout_with_actionbar libs.subclass.baxlayout_with_actionbar
+# Partie layout pour lancer l'applicationn
+
+MyScreenManager:
+<MyScreenManager@NavigationScreenManager>:
+    Screen:
+        name: "screen1"
+        BoxLayout:
+            orientation: 'vertical'
+            Button:
+                text:"Aller au sreen 2"
+                on_press: root.push('screen2')
+            Button:
+                text:"Aller aux Images"
+                on_press: root.push('ImagesExemple')
+    Screen:
+        name: "screen2"
+        Button:
+            text:"B"
+            on_press: root.pop()
+    Screen:
+        name:"ImagesExemple"
+        BoxLayoutWithActionBar:
+            title: "Image"
+            ImagesExample
+
+

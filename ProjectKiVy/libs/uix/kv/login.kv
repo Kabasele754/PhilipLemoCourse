@@ -1,0 +1,39 @@
+GridLayoutExemple:
+<GridLayoutExemple>:
+    cols:2
+    Label:
+        background_color:0,1,0,1
+        canvas.before:
+            Color:
+                rgba:0,0,1,1
+            Rectangle:
+                size:self.size
+                pos:self.pos
+        text: "Nom"
+        color:1,0,0,1
+    TextInput:
+        multiline: False
+        id:nom
+    Label:
+        text: "PostNom"
+    TextInput:
+        multiline: False
+        id:postnom
+    Label:
+        text: "PreNom"
+
+    TextInput:
+        multiline: False
+        id:prenom
+    Button:
+        text: "Enregister"
+        on_press:root.enregistre()
+        color:56/255,159/255,162/255,1
+        background_color:(0,0,1,1)
+    Label:
+        id: ecran
+
+
+
+
+

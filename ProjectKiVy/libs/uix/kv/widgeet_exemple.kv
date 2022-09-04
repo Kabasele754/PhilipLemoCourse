@@ -1,0 +1,56 @@
+
+<ImagesExample@GridLayout>:
+    cols:3
+    spacing: 10
+    Image:
+        source: "assets/images/ecol.jpg"
+    Image:
+        source: "assets/images/ecol.jpg"
+        allow_stretch: True
+    Image:
+        source: "assets/images/ecol.jpg"
+        keep_ratio: False
+        allow_stretch: True
+    Image:
+        source: "assets/images/donut.gif"
+        anim_delay:1/60
+
+
+<WidgetExempleSecond>:
+
+    cols:3
+    ToggleButton:
+        text: "OFF"
+        on_state: root.on_toggle(self)
+
+    Button:
+        text: "Cliquer"
+        on_press: root.cliquer()
+    Label:
+        text: root.mon_text_lab
+        font_name: "fonts/Lcd.ttf"
+        font_size: "88dp"
+        color: (1, 0, 0, 1)
+
+    Switch:
+        on_active: root.on_switch(self)
+
+    Slider:
+        id:mon_slider
+        min:0
+        max:100
+        value:40
+        on_value: root.on_slider_value(self)
+    BoxLayout:
+        Label:
+            text: root.mon_text_slider
+        ProgressBar:
+            max:100
+            value:mon_slider.value
+    TextInput:
+        id:mon_text_input
+        text: "Toto"
+        size_hint:(.2,1)
+
+    Label:
+        text: mon_text_input.text
