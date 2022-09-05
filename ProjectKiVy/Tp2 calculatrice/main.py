@@ -78,9 +78,6 @@ class CalculatorWidget(Widget):
             prev_number = f"{prev_number}."
             self.ids.input_screen.text = prev_number
 
-
-
-
 class CalculatorApp(App):
     def build(self):
         return CalculatorWidget()
