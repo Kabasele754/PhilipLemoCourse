@@ -81,9 +81,6 @@ class CalculatorWidget(Widget):
 
 
 
-
-
-
 class CalculatorApp(App):
     def build(self):
         return CalculatorWidget()
