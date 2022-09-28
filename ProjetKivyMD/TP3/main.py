@@ -6,7 +6,7 @@ from kivy.lang.builder import Builder
 from kivy.core.window import Window
 Window.size = (350,550)
 
-
+# ce Tp permet d'ajouter un etudiant dans une base donnée pour esseye
 class Enregister(MDApp):
 
     def build(self):
