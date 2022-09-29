@@ -13,13 +13,13 @@ class Enregister(MDApp):
         #self.theme_cls.theme_style = "Dark"
         self.theme_cls.primary_palette = "BlueGray"
 
-        # Create Database Or Connect To One
+        # Create Database Or Connect To One 
         conn = sqlite3.connect('engister.db')
 
         # Create A Cursor
         c = conn.cursor()
 
-        # Create A Table
+        # Create a Table 
         c.execute("""CREATE TABLE if not exists etudiants(
     			nom text, postnom text, prenom text, phone text, email text)
     		 """)
